@@ -273,59 +273,36 @@ function closeCartModal() {
 // Checkout
 function checkout() {
     if (cart.length === 0) {
-        alert('Your cart is empty!');
+        showNotification('Your cart is empty!');
         return;
     }
 
     const total = calculateTotal();
-    alert(`Thank you for your order!\n\nTotal: $${total.toFixed(2)}\n\nThis is a demo store. In a real application, you would be redirected to a payment processor.`);
+    const confirmCheckout = confirm(`Complete your order?\n\nTotal: $${total.toFixed(2)}\n\nThis is a demo store. In a real application, you would be redirected to a payment processor.`);
     
-    // Clear cart
-    cart = [];
-    updateCartCount();
-    saveCart();
-    displayCartItems();
+    if (confirmCheckout) {
+        // Clear cart
+        cart = [];
+        updateCartCount();
+        saveCart();
+        displayCartItems();
+        closeCartModal();
+        showNotification('Thank you for your order! 🎉');
+    }
 }
 
 // Show notification
 function showNotification(message) {
     // Create notification element
     const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        background-color: #4CAF50;
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        z-index: 3000;
-        animation: slideIn 0.3s ease-out;
-    `;
+    notification.className = 'notification';
     notification.textContent = message;
-
-    // Add animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-    `;
-    document.head.appendChild(style);
 
     document.body.appendChild(notification);
 
     // Remove notification after 3 seconds
     setTimeout(() => {
-        notification.style.animation = 'slideIn 0.3s ease-out reverse';
+        notification.classList.add('hide');
         setTimeout(() => {
             notification.remove();
         }, 300);
