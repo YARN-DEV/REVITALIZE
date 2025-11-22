@@ -1,20 +1,24 @@
-// Product Data
+// Product Data with Gumroad Integration
+// IMPORTANT: Replace the gumroadUrl values with your actual Gumroad product URLs
+// Create these products in your Gumroad dashboard first!
 const products = [
     {
         id: 1,
-        name: "Yoga Mat Pro",
-        category: "Fitness Equipment",
-        description: "Premium eco-friendly yoga mat with superior grip and cushioning for your daily practice.",
+        name: "Acupressure Mat Pro",
+        category: "Wellness Equipment",
+        description: "Premium acupressure mat with thousands of stimulation points for muscle relief and relaxation.",
         price: 49.99,
-        icon: "🧘"
+        icon: "🧘",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com/l/msvfen"
     },
     {
         id: 2,
         name: "Smart Fitness Watch",
         category: "Wellness Devices",
         description: "Track your health metrics, workouts, and sleep patterns with this advanced fitness tracker.",
-        price: 199.99,
-        icon: "⌚"
+        price: 199.00,
+        icon: "⌚",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com/l/yibals"
     },
     {
         id: 3,
@@ -22,7 +26,8 @@ const products = [
         category: "Relaxation",
         description: "Create a calming atmosphere with this ultrasonic essential oil diffuser.",
         price: 39.99,
-        icon: "🕯️"
+        icon: "🕯️",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR AROMATHERAPY DIFFUSER LINK
     },
     {
         id: 4,
@@ -30,7 +35,8 @@ const products = [
         category: "Recovery Devices",
         description: "Professional-grade percussion massager for deep tissue recovery and muscle relief.",
         price: 149.99,
-        icon: "💆"
+        icon: "💆",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR MASSAGE GUN LINK
     },
     {
         id: 5,
@@ -38,7 +44,8 @@ const products = [
         category: "Mindfulness",
         description: "Comfortable meditation pillow designed to support proper posture during practice.",
         price: 34.99,
-        icon: "🪷"
+        icon: "🪷",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR MEDITATION CUSHION LINK
     },
     {
         id: 6,
@@ -46,7 +53,8 @@ const products = [
         category: "Fitness Equipment",
         description: "Complete set of resistance bands for strength training and physical therapy.",
         price: 29.99,
-        icon: "💪"
+        icon: "💪",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR RESISTANCE BANDS LINK
     },
     {
         id: 7,
@@ -54,7 +62,8 @@ const products = [
         category: "Wellness Devices",
         description: "Stay hydrated with reminders and track your daily water intake automatically.",
         price: 44.99,
-        icon: "💧"
+        icon: "💧",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR SMART WATER BOTTLE LINK
     },
     {
         id: 8,
@@ -62,7 +71,8 @@ const products = [
         category: "Recovery Devices",
         description: "High-density foam roller for myofascial release and post-workout recovery.",
         price: 24.99,
-        icon: "🎯"
+        icon: "🎯",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR FOAM ROLLER LINK
     },
     {
         id: 9,
@@ -70,7 +80,8 @@ const products = [
         category: "Wellness Devices",
         description: "HEPA filter air purifier to remove allergens and improve indoor air quality.",
         price: 129.99,
-        icon: "🌬️"
+        icon: "🌬️",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR AIR PURIFIER LINK
     },
     {
         id: 10,
@@ -78,7 +89,8 @@ const products = [
         category: "Relaxation",
         description: "Therapeutic mat with thousands of pressure points for natural pain relief and relaxation.",
         price: 54.99,
-        icon: "🎭"
+        icon: "🎭",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com/l/msvfen"
     },
     {
         id: 11,
@@ -86,7 +98,8 @@ const products = [
         category: "Fitness Equipment",
         description: "Improve stability, core strength, and coordination with this versatile balance trainer.",
         price: 69.99,
-        icon: "⚖️"
+        icon: "⚖️",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR BALANCE BOARD LINK
     },
     {
         id: 12,
@@ -94,7 +107,8 @@ const products = [
         category: "Wellness Devices",
         description: "Combat seasonal blues and boost energy with therapeutic full-spectrum light.",
         price: 89.99,
-        icon: "💡"
+        icon: "💡",
+        gumroadUrl: "https://anthonyfrmtexas.gumroad.com" // UPDATE WITH YOUR LIGHT THERAPY LAMP LINK
     }
 ];
 
@@ -119,7 +133,7 @@ function displayProducts() {
     });
 }
 
-// Create product card
+// Create product card with Gumroad integration
 function createProductCard(product) {
     const card = document.createElement('div');
     card.className = 'product-card';
@@ -129,7 +143,9 @@ function createProductCard(product) {
         <p class="product-category">${product.category}</p>
         <p class="product-description">${product.description}</p>
         <p class="product-price">$${product.price.toFixed(2)}</p>
-        <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+        <a href="${product.gumroadUrl}" target="_blank" class="gumroad-buy-btn">
+            <button class="buy-now">Buy Now on Gumroad</button>
+        </a>
     `;
     return card;
 }

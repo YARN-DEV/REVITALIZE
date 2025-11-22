@@ -18,7 +18,7 @@
                     <li><a href="#products" class="nav-link">Products</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="#cart" class="nav-link cart-link">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="https://your-username.gumroad.com" target="_blank" class="nav-link">🛒 My Store</a></li>
                 </ul>
             </div>
         </nav>
@@ -104,17 +104,9 @@
             </div>
         </section>
 
-        <!-- Cart Modal -->
-        <div id="cart-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Your Shopping Cart</h2>
-                <div id="cart-items"></div>
-                <div class="cart-total">
-                    <h3>Total: $<span id="cart-total">0.00</span></h3>
-                    <button class="cta-button" id="checkout-btn">Checkout</button>
-                </div>
-            </div>
+        <!-- Gumroad Integration Notice -->
+        <div id="gumroad-notice" style="display: none;">
+            <p>Secure checkout powered by Gumroad</p>
         </div>
     </main>
 
